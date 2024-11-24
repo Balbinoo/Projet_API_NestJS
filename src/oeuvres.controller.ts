@@ -5,6 +5,7 @@ import {
   Post,
   Query,
   Param,
+  Delete,
 } from '@nestjs/common';
 import type { Oeuvre } from './Oeuvre';
 import { OeuvreService } from './oeuvres.service';
@@ -38,4 +39,10 @@ export class OeuvreController {
       return this.oeuvreService.getOeuvresOf(id_exposition);
     }
 
+    // Delete oeuvres by the id_oeuvre
+    @Delete('delete/:id_oeuvre')
+    deleteOeuvre(@Param('id_oeuvre') id_oeuvre: string): void {
+      this.oeuvreService.remove(id_oeuvre);
+    }
+  
 }

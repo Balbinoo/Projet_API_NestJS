@@ -75,5 +75,15 @@ export class OeuvreService implements OnModuleInit {
     );
   }
 
+  getOeuvresOf(id_exposition: string): Oeuvre[] {
+    return this.getAllOeuvres()
+      .filter((oeuvre) => oeuvre.id_exposition === id_exposition)
+      .sort((a, b) => a.titre.localeCompare(b.titre));
+  }
+  
+  remove(idOeuvre: string) {
+    this.storage.delete(idOeuvre);
+  }
+
 
 }
