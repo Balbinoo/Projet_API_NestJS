@@ -1,7 +1,10 @@
 import {
   Controller,
   Get,
+  Body,
+  Post,
   Query,
+  Param,
 } from '@nestjs/common';
 import type { Oeuvre } from './Oeuvre';
 import { OeuvreService } from './oeuvres.service';
@@ -10,10 +13,11 @@ import { OeuvreService } from './oeuvres.service';
 export class OeuvreController {
   constructor(private readonly oeuvreService: OeuvreService) {}
 
-  @Get()
-  getOeuvres(@Query('all') id_exposition: string): Oeuvre[] {
-    return this.oeuvreService.getAllOeuvres();
+  // Add a new oeuvre
+  @Post()
+  createOeuvre(@Body() oeuvre: Oeuvre): Oeuvre {
+    this.oeuvreService.addOeuvre(oeuvre);
+    return this.oeuvreService.getOeuvre(oeuvre.id_oeuvre);
   }
-
 
 }
