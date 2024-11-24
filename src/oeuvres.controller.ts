@@ -20,4 +20,11 @@ export class OeuvreController {
     return this.oeuvreService.getOeuvre(oeuvre.id_oeuvre);
   }
 
+  // Get all oeuvres
+  @Get('all')
+  getAllOeuvres(): Oeuvre[] {
+    return this.oeuvreService.getAllOeuvres();
+  }
+  
+
 }
