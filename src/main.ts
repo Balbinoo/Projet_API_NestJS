@@ -3,7 +3,7 @@ import { OeuvreModule } from './oeuvres.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(OeuvreModule);
-  const port = process.env.PORT || 3000;  
+  const port = 8080;  
   await app.listen(port);
 }
 bootstrap();
