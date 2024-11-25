@@ -10,7 +10,7 @@ import {
 import type { Oeuvre } from './Oeuvre';
 import { OeuvreService } from './oeuvres.service';
 
-@Controller('/oeuvres')
+@Controller()
 export class OeuvreController {
   constructor(private readonly oeuvreService: OeuvreService) {}
 
@@ -22,7 +22,7 @@ export class OeuvreController {
   }
 
   // Get all oeuvres
-  @Get('all')
+  @Get()
   getAllOeuvres(): Oeuvre[] {
     return this.oeuvreService.getAllOeuvres();
   }
