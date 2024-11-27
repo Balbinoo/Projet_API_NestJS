@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "app_id": "app_96fe8c94-9085-4eab-b051-80432bfa2281",
+      "org_id": "orga_693c81f4-6d20-46f3-901b-29afc84a379d",
+      "deploy_url": "https://push-n3-par-clevercloud-customers.services.clever-cloud.com/app_96fe8c94-9085-4eab-b051-80432bfa2281.git",
+      "git_ssh_url": "git+ssh://git@push-n3-par-clevercloud-customers.services.clever-cloud.com/app_96fe8c94-9085-4eab-b051-80432bfa2281.git",
+      "name": "App_Nest_BALBINO",
+      "alias": "App_Nest_BALBINO"
+    }
+  ]
+}
