@@ -25,7 +25,7 @@ export class OeuvreService implements OnModuleInit {
           'https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/om-culture-moba-exposition-oeuvre@orleansmetropole/records?limit=20'
         )
         .pipe(
-          map((response) => response.data.results), // Access the results array directly
+          map((response) => response.data.results), 
           map((apiOeuvres) =>
             apiOeuvres.map((apiOeuvre) => ({
               id_exposition: apiOeuvre.id_exposition,
@@ -47,6 +47,7 @@ export class OeuvreService implements OnModuleInit {
                   }
                 : null,
               photo_url2: apiOeuvre.photo_url2,
+              favorite: false, 
             }))
           ),
           tap((oeuvres) => oeuvres.forEach((oeuvre) => this.addOeuvre(oeuvre))),
@@ -54,7 +55,6 @@ export class OeuvreService implements OnModuleInit {
     );
   }
   
-
   addOeuvre(oeuvre: Oeuvre) {
     this.storage.set(oeuvre.id_oeuvre, oeuvre);
   }
@@ -85,5 +85,12 @@ export class OeuvreService implements OnModuleInit {
     this.storage.delete(idOeuvre);
   }
 
+  putFavorite(id_oeuvre: string): void {
+    const oeuvre = this.storage.get(id_oeuvre);
+    if (!oeuvre) {
+      throw new Error(`Oeuvre with id ${id_oeuvre} not found`);
+    }
+    oeuvre.favorite = !oeuvre.favorite; 
+  }
 
 }

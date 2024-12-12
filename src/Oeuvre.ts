@@ -16,4 +16,5 @@ export interface Oeuvre {
     lat: number;
   } | null;
   photo_url2: string;
+  favorite: boolean;
 };
